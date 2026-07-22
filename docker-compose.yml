@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  fayda-bot:
+    build: .
+    container_name: fayda-pdf-downloader-bot
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - FAYDA_FORM_URL=${FAYDA_FORM_URL}
+      - INSTRUCTIONS_URL=${INSTRUCTIONS_URL}
+      - REQUIREMENTS_URL=${REQUIREMENTS_URL}
+      - FEE_INFO_URL=${FEE_INFO_URL}
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
